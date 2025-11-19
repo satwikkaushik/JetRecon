@@ -11,3 +11,8 @@ dependencies = [
     "uvicorn[standard]>=0.38.0",
     "uvloop>=0.22.1",
 ]
+
+[dependency-groups]
+dev = [
+    "faker>=38.2.0",
+]

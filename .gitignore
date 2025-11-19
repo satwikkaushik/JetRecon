@@ -90,3 +90,6 @@ desktop.ini
 # Misc
 *.bak
 *~
+
+# Sample datasets
+sample_datasets/
