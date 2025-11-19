@@ -4,7 +4,7 @@ from fastapi.exceptions import RequestValidationError
 from utils.config import config
 from utils.errors import custom_validation_error_handler
 from middlewares.error_handler import ErrorHandlerMiddleware
-
+from routers.jobs import router as jobs_router
 
 app = FastAPI(
     title=config.APP_NAME,
@@ -18,6 +18,7 @@ app.add_exception_handler(RequestValidationError, custom_validation_error_handle
 app.add_middleware(ErrorHandlerMiddleware)
 
 # Register routers
+app.include_router(jobs_router, prefix="/jobs", tags=["Jobs"])
 
 
 # Basic health check endpoint
