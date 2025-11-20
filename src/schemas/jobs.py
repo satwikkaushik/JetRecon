@@ -3,10 +3,12 @@
 from pydantic import BaseModel, Field
 from typing import Optional, List
 import enum
+from schemas.execution_plan import ExecutionPlan
 
 
 class JobStatus(enum.Enum):
-    CREATED = "created_pending_hash"
+    CREATED = "created_pending_processing"
+    PREPARED = "prepared_pending_hashing"
     HASHING = "hashing_in_progress"
     RECON = "reconciliation_in_progress"
     COMPLETED = "completed"
@@ -27,3 +29,4 @@ class JobResponse(BaseModel):
     size_file1: int
     size_file2: int
     status: JobStatus
+    execution_plan: Optional[ExecutionPlan] = None

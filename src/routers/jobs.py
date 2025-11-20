@@ -2,7 +2,8 @@
 
 from fastapi import APIRouter
 from schemas.jobs import JobResponse, JobRequest
-from services.job_servies import create_job
+from schemas.execution_plan import ExecutionPlan
+from services.job_servies import create_job, prepare_job
 from services.job_store import (
     get_job_from_store,
     get_all_jobs_from_store,
@@ -49,3 +50,11 @@ def delete_job(job_id: str):
 
     delete_job_from_store(job_id)
     return {"message": f"Job {job_id} deleted successfully."}
+
+
+@router.post("/{job_id}/prepare", response_model=ExecutionPlan)
+def prepare_job_endpoint(job_id: str):
+    """Endpoint to prepare a job for processing"""
+
+    plan: ExecutionPlan = prepare_job(job_id)
+    return plan
