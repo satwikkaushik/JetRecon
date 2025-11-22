@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JetRecon - High-Performance Data Reconciliation Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-rocket"></i>
+                <h1>JetRecon</h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="create-task-section">
+            <h2><i class="fas fa-plus-circle"></i> Create New Task</h2>
+            <form id="create-task-form" class="task-form">
+                <div class="form-group">
+                    <label for="file1"><i class="fas fa-file"></i> File 1 Path:</label>
+                    <input type="text" id="file1" name="file1" required placeholder="Enter path to first file">
+                </div>
+                <div class="form-group">
+                    <label for="file2"><i class="fas fa-file"></i> File 2 Path:</label>
+                    <input type="text" id="file2" name="file2" required placeholder="Enter path to second file">
+                </div>
+                <button type="submit" id="create-task-btn" class="btn-primary">
+                    <i class="fas fa-play"></i> Create Task
+                </button>
+            </form>
+        </section>
+
+        <section id="task-details-section" class="hidden fade-in">
+            <h2><i class="fas fa-info-circle"></i> Task Details</h2>
+            <div id="task-info" class="card">
+                <!-- Task details will be populated here -->
+            </div>
+            <button id="prepare-btn" class="btn-secondary hidden">
+                <i class="fas fa-cog"></i> Prepare Task
+            </button>
+        </section>
+
+        <section id="execution-plan-section" class="hidden fade-in">
+            <h2><i class="fas fa-chart-line"></i> Execution Plan</h2>
+            <div id="execution-plan-info" class="card">
+                <!-- Execution plan will be populated here -->
+            </div>
+            <button id="perform-recon-btn" class="btn-success hidden">
+                <i class="fas fa-bolt"></i> Perform Recon
+            </button>
+        </section>
+
+        <section id="status-section">
+            <p id="status-message"></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
