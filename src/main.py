@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.exceptions import RequestValidationError
+from fastapi.middleware.cors import CORSMiddleware
 
 from utils.config import config
 from utils.errors import custom_validation_error_handler
@@ -12,6 +13,15 @@ app = FastAPI(
     version=config.APP_VERSION,
 )
 
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 # Register custom exception handlers
 app.add_exception_handler(RequestValidationError, custom_validation_error_handler)
