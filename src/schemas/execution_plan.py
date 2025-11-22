@@ -21,4 +21,7 @@ class ExecutionPlan(BaseModel):
     file1: FilePlan
     file2: FilePlan
     bucket_count: int
+    bucket_size: int
+    recon_workers: int
+    read_workers: int
     hash_algorithm: str
